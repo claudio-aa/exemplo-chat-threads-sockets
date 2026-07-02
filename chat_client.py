@@ -62,8 +62,10 @@ def iniciar_cliente(host, porta, nome):
 
 def argumentos():
     parser = argparse.ArgumentParser(description="Cliente de chat por linha de comandos.")
-    parser.add_argument("--host", default=HOST_PADRAO, help=f"Endereço do servidor. Valor por omissão: {HOST_PADRAO}")
-    parser.add_argument("--port", type=int, default=PORTA_PADRAO, help=f"Porta Transmission Control Protocol (TCP) do servidor. Valor por omissão: {PORTA_PADRAO}")
+    parser.add_argument("--host", default=HOST_PADRAO,
+                        help=f"Endereço do servidor. Valor por omissão: {HOST_PADRAO}")
+    parser.add_argument("--port", type=int, default=PORTA_PADRAO,
+                        help=f"Porta TCP do servidor. Valor por omissão: {PORTA_PADRAO}")
     parser.add_argument("--name", help="Nome de conta a mostrar no chat.")
     return parser.parse_args()
 

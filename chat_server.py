@@ -126,8 +126,10 @@ def iniciar_servidor(host, porta):
 
 def argumentos():
     parser = argparse.ArgumentParser(description="Servidor de chat com sockets e threads.")
-    parser.add_argument("--host", default=HOST_PADRAO, help=f"Endereço onde o servidor escuta. Valor por omissão: {HOST_PADRAO}")
-    parser.add_argument("--port", type=int, default=PORTA_PADRAO, help=f"Porta Transmission Control Protocol (TCP). Valor por omissão: {PORTA_PADRAO}")
+    parser.add_argument("--host", default=HOST_PADRAO,
+                        help=f"Endereço onde o servidor escuta. Valor por omissão: {HOST_PADRAO}")
+    parser.add_argument("--port", type=int, default=PORTA_PADRAO,
+                        help=f"Porta TCP. Valor por omissão: {PORTA_PADRAO}")
     return parser.parse_args()
 
 
