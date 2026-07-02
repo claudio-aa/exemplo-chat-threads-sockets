@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verificar:
+    name: Verificar código Python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências de verificação
+        run: pip install flake8
+
+      - name: Verificar sintaxe (erros fatais)
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: Verificar estilo (avisos)
+        run: flake8 . --count --max-line-length=100 --statistics
+
+      - name: Verificar imports e execução dos módulos
+        run: |
+          python -c "import chat_server; print('chat_server OK')"
+          python -c "import chat_client; print('chat_client OK')"
