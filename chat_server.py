@@ -89,7 +89,7 @@ def tratar_cliente(sock, endereco):
                 break
             if mensagem.lower() == "/who":
                 nomes = ", ".join(sorted(nomes_ligados()))
-                enviar_linha(sock, f"[sistema] Ligados: {nomes}")
+                enviar_linha(sock, f"[sistema] Clientes ligados: {nomes}")
                 continue
 
             print(f"[{nome}] {mensagem}")
