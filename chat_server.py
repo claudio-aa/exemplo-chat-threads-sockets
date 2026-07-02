@@ -87,6 +87,10 @@ def tratar_cliente(sock, endereco):
                 continue
             if mensagem.lower() == "/quit":
                 break
+            if mensagem.lower() == "/who":
+                nomes = ", ".join(sorted(nomes_ligados()))
+                enviar_linha(sock, f"[sistema] Ligados: {nomes}")
+                continue
 
             print(f"[{nome}] {mensagem}")
             difundir(f"[{nome}] {mensagem}")
